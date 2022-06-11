@@ -1,6 +1,6 @@
-.footerContent {
+.footerUp {
     background: #e54d04;
-    padding: 50px 0;
+    padding: 50px;
 
     .logoRodape {
         width: 180px;
@@ -18,28 +18,37 @@
             text-align: right;
             color: #fff;
             margin-bottom: 10px;
-            font-size: 38px;
+            font-size: 28px;
         }
 
         ul {
-            .icon {
-                font-size: 42px;
-                color: #fff;
-                
-            }
 
             li {
                 text-align: right;
                 list-style: none;
                 color: #fff;
-                margin-top: 14px;
+                margin-top: 6px;
                 font-size: 18px;
 
                 &:first-child {
                     margin-top: 0;
                 }
+
+                .icon {
+                    font-size: 42px;
+                    color: #fff;  
+                }
+                
             }
         }
     }
+}
 
+.footerDown {
+    background: #da4702;
+    padding: 30px;
+
+    span {
+        color: #fff;
+    }
 }
