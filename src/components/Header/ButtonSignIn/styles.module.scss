@@ -13,6 +13,12 @@
         justify-content: center;
         gap: 8px;
 
+        transition: filter 0.2s;
+
+        &:hover {
+            filter: brightness(0.95);
+        }
+
         &:first-child {
             margin-top: 0;
         }

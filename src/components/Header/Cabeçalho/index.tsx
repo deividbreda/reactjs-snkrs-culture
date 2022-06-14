@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import Link from 'next/link';
 import { SignInButton } from '../SignIn';
 import styles from './styles.module.scss'
 
@@ -9,14 +9,20 @@ export function Header(){
                 <div className="containerWidth">       
                     <div className="col col-3-logo">
                         <div className={styles.itemContent}>
-                            <img className={styles.logo} src="/images/logo.png" alt="" />
+                            <a> <img className={styles.logo} src="/images/logo.png" alt="" /> </a>
                         </div>
                     </div>
 
                     <div className="col col-3-menu">
                         <nav> 
-                            <a href=""> Home </a>  
-                            <a href=""> Sneakers </a> 
+                            <Link href="/"> 
+                                <a> Home </a> 
+                            </Link>
+
+                            <Link href="/sneakers"> 
+                                <a> Sneakers </a> 
+                            </Link>
+                           
                             <a href=""> News </a>  
                             <a href=""> Raffles </a>       
                         </nav>
