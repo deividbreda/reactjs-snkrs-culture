@@ -1,0 +1,70 @@
+.sneakers {
+    padding: 50px 0;
+
+    .titlePageCategory {
+        font-size: 58px;
+        letter-spacing: -7px;
+        position: relative;
+
+        &::before {
+            content: "";
+            height: 6px;
+            border-radius: 30px;
+            background: linear-gradient(90deg, #e1e1e1, #ffffff);
+            width: 78%;
+            position: absolute;
+            top: 43px;
+            bottom: 0;
+            left: 22%;
+        }
+    }
+
+    .sneakers {
+        width: 100%;
+        padding: 18px 0;
+        display: flex;
+        gap: 38px;
+
+        .sneaker {
+            box-shadow: 0 0 50px rgb(0 0 0 / 10%);
+            border-radius: 10px;
+            margin-top: 30px;
+    
+            transition: all .3s;
+    
+            &:hover {
+                transform: scale(1.02);
+                transform: translateY(-5px);
+                box-shadow: 0 4px 60px 0 rgba(0,0,0,0.2);
+            }
+
+            h1 {
+                font-size: 18px;
+            }
+    
+            img {
+                height: 200px;
+                object-fit: cover;
+                width: 100%;
+                border-radius: 10px 10px 0 0;
+            }
+    
+            .text {
+                padding: 12px 24px;
+                position: relative;
+                height: 130px;
+    
+                p {
+                    margin: 16px 0;
+                    font-size: 14px;
+                }
+    
+                span {
+                    color: rgb(204, 204, 204);
+                    position: absolute;
+                    bottom: 20px;
+                }
+            }
+        }
+    }
+}
