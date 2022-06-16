@@ -22,8 +22,11 @@ export function Header(){
                             <Link href="/sneakers"> 
                                 <a> Sneakers </a> 
                             </Link>
-                           
-                            <a href=""> News </a>  
+
+                            <Link href="/news"> 
+                                <a href=""> News </a>  
+                            </Link>
+
                             <a href=""> Raffles </a>       
                         </nav>
                     </div>
