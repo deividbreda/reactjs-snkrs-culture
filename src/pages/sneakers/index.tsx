@@ -1,5 +1,6 @@
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
+import Link from 'next/link';
 import { RichText } from 'prismic-dom';
 import { getPrismicClient } from '../../services/prismic';
 import styles from './styles.module.scss';
@@ -20,7 +21,7 @@ export default function Products({ products }: ProductsProps) {
     return (
         <>
         <Head>
-            <title> Sneakers | Ignews</title>
+            <title> Sneakers | SNKRS.culture </title>
         </Head>
 
         <div className="containerWidth">
@@ -30,15 +31,17 @@ export default function Products({ products }: ProductsProps) {
                 <div className={styles.sneakers}>  
                     {products.map(product => (
                         <div key={product.slug} className="col col-4">
-                            <a href="">
-                            <div className={styles.sneaker}>
-                                <img src={product.img} alt="" />
-                                <div className={styles.text}>
-                                    <h1> {product.title} </h1>
-                                    <span> {product.publicatedDate} </span>
-                                </div>
-                            </div>
-                            </a>
+                            <Link href={`/sneakers/${product.slug}`}>
+                                <a>
+                                    <div className={styles.sneaker}>
+                                        <img src={product.img} alt="" />
+                                        <div className={styles.text}>
+                                            <h1> {product.title} </h1>
+                                            <span> {product.publicatedDate} </span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </Link>
                         </div>          
                     ))}  
                 </div>
@@ -57,7 +60,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
     const products = response.results.map(product => {
         return {
-            slug: product.id,
+            slug: product.uid,
             title: RichText.asText(product.data.title),
             img: product.data.image.url,
             excerpt: product.data.content.find(content => content.type === 'paragraph')?.text ?? '',

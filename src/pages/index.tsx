@@ -1,5 +1,6 @@
 import { GetStaticProps } from "next";
 import Head from "next/head";
+import Link from "next/link";
 import { RichText } from "prismic-dom";
 import { getPrismicClient } from "../services/prismic";
 
@@ -47,15 +48,19 @@ export default function Home({ products, news }: HomeProps) {
             <div className={styles.news}>
               {news.map(noticia => (
                 <div key={noticia.slug} className="col col-2">
-                <div className={styles.new}>
-                  <img src={noticia.img} alt="" />
-                    <div className={styles.cover}>
-                      <div className={styles.text}>
-                        <h1> {noticia.title} </h1>
-                        <p> {noticia.publicatedDate} </p>
+                  <Link href={`/news/${noticia.slug}`}>
+                    <a>
+                      <div className={styles.new}>
+                        <img src={noticia.img} alt="" />
+                        <div className={styles.cover}>
+                          <div className={styles.text}>
+                            <h1> {noticia.title} </h1>
+                            <p> {noticia.publicatedDate} </p>
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  </div>
+                    </a>
+                  </Link>
                 </div>
               ))}
             </div>
@@ -63,16 +68,18 @@ export default function Home({ products, news }: HomeProps) {
             <div className={styles.sneakers}>
               {products.map(product => (
                 <div key={product.slug} className="col col-3">
-                  <a href="">
-                    <div className={styles.sneaker}>
-                      <img src={product.img} alt="" />
-                      <div className={styles.text}>
-                        <h1> {product.title} </h1>
-                        <p> {product.excerpt} </p>
-                        <span> {product.publicatedDate} </span>
+                  <Link href={`/sneakers/${product.slug}`}>
+                    <a>
+                      <div className={styles.sneaker}>
+                        <img src={product.img} alt="" />
+                        <div className={styles.text}>
+                          <h1> {product.title} </h1>
+                          <p> {product.excerpt} </p>
+                          <span> {product.publicatedDate} </span>
+                        </div>
                       </div>
-                    </div>
-                  </a>
+                    </a>
+                  </Link>
                 </div>
               ))}
             </div>

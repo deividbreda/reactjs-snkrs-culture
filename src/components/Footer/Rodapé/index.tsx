@@ -1,36 +1,39 @@
 import styles from "./styles.module.scss"
 import { FaFacebookSquare, FaInstagramSquare } from "react-icons/fa"
+import Link from "next/link";
 
 export function Footer(){
     return(
         <>
         <div className={styles.footerUp}>
             <div className="containerWidth">
-                <div className="col col-3-logo-rodape">          
-                    <img className={styles.logoRodape} src="/images/logorodape.png" alt="" />
-                    <p className={styles.desc}> O seu melhor portal de noticias sobre a cultura Sneakerhead, fique ligado dentro das novidades e lançamentos! </p>
-                </div>
-
-                <div className="col col-3-links-rodape">
-                    <div className={styles.itemContent}> 
-                        <h1> Links </h1>
-                        <ul>
-                            <li> <a href=""> Sneakers </a> </li>
-                            <li> <a href=""> News </a> </li>
-                            <li> <a href=""> Raffle </a> </li>
-                        </ul>
+                <div className={styles.allConteudoRodape}>
+                    <div className="col col-2">          
+                        <img className={styles.logoRodape} src="/images/logorodape.png" alt="" />
+                        <p className={styles.desc}> O seu melhor portal de noticias sobre a cultura Sneakerhead, fique ligado dentro das novidades e lançamentos! </p> 
+                           
+                            
+                                    <a className={styles.icon} href=""> {<FaFacebookSquare />} </a>
+                                    <a className={styles.icon} href=""> {<FaInstagramSquare />} </a> 
+                                
+                            
                     </div>
-                </div>
 
-                <div className="col col-3-links-rodape">
-                    <div className={styles.itemContent}> 
-                        <h1> Social </h1>
-                        <ul> 
-                            <li>
-                                <a className={styles.icon} href=""> {<FaFacebookSquare />} </a>
-                                <a className={styles.icon} href=""> {<FaInstagramSquare />} </a> 
-                            </li>
-                        </ul>
+                    <div className="col col-2">
+                        <div className={styles.itemContent}> 
+                            <ul className={styles.links}>
+                                <li>
+                                    <Link href="/sneakers">
+                                        <a> Sneakers </a>
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/news">
+                                        <a> News </a>
+                                    </Link>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -3,6 +3,7 @@ import { GetStaticProps } from 'next';
 import styles from "./styles.module.scss"
 import { getPrismicClient } from "../../services/prismic";
 import { RichText } from "prismic-dom";
+import Link from "next/link";
 
 type New = {
     slug: string,
@@ -20,7 +21,7 @@ export default function News({ news }: NewsProps){
     return (
         <>
             <Head>
-                <title> News | Ignews</title>
+                <title> News | SNKRS.culture </title>
             </Head>
 
             <div className="containerWidth">
@@ -29,12 +30,16 @@ export default function News({ news }: NewsProps){
 
                     {news.map(noticia => (
                         <div key={noticia.slug} className={styles.new}>
-                            <img className={styles.img} src={noticia.img} alt="" />
-                            <div className={styles.cover}>
-                                <span> {noticia.publicatedDate} </span>
-                                <h1> {noticia.title} </h1>
-                                <p> {noticia.excerpt} </p>
-                            </div>
+                            <Link href={`/news/${noticia.slug}`}>
+                                <a>
+                                    <img className={styles.img} src={noticia.img} alt="" />
+                                    <div className={styles.cover}>
+                                        <span> {noticia.publicatedDate} </span>
+                                        <h1> {noticia.title} </h1>
+                                        <p> {noticia.excerpt} </p>
+                                    </div>
+                                </a>
+                            </Link>         
                         </div> 
                     ))}  
                 </div>
@@ -52,7 +57,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
     const news = response.results.map(noticias => {
         return {
-            slug: noticias.id,
+            slug: noticias.uid,
             title: RichText.asText(noticias.data.title),
             img: noticias.data.image.url,
             excerpt: noticias.data.content.find(content => content.type === 'paragraph')?.text ?? '',

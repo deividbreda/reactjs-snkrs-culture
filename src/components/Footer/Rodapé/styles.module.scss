@@ -1,44 +1,71 @@
 .footerUp {
     background: #e54d04;
-    padding: 50px;
+    padding: 80px;
 
-    .logoRodape {
-        width: 180px;
-    }
+    .allConteudoRodape {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
-    .desc {
-        margin-top: 16px;
-        color: #fff;
-    }
-
-    .itemContent {
-        padding-left: 12px;
-
-        h1 {
-            text-align: right;
+        .logoRodape {
+            width: 180px;
+        }
+    
+        .desc {
+            margin-top: 16px;
+            margin-bottom: 32px;
             color: #fff;
-            margin-bottom: 10px;
-            font-size: 28px;
         }
 
+        .icon {
+            margin-top: 30px;
+            font-size: 42px;
+            color: #fff;  
+        }
+    
         ul {
-
+    
             li {
-                text-align: right;
+                text-align: left;
                 list-style: none;
                 color: #fff;
                 margin-top: 6px;
                 font-size: 18px;
+    
+                a {
+                    background: #c84000;
+                    color: #fa6721;
+                    padding: 8px 32px;
+                    border-radius: 100px;
+                    margin: 10px;
+                    font-size: 23px;
 
-                &:first-child {
-                    margin-top: 0;
-                }
+                    transition: all .3s;
 
-                .icon {
-                    font-size: 42px;
-                    color: #fff;  
+                    &:hover {
+                        background: #000;
+                        color: #fff;
+                    }
                 }
                 
+            }
+    
+            &.links {
+                display: flex;
+                justify-content: right;
+                align-items: center;
+            }
+        }
+    
+        .itemContent {
+            padding-left: 12px;
+    
+            h1 {
+                text-align: right;
+                color: #fff;
+                margin-bottom: 10px;
+                font-size: 28px;
             }
         }
     }
